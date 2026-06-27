@@ -1,7 +1,7 @@
-output "resource_group_name" {
-  value = azurerm_resource_group.main.name
+output "container_name" {
+  value = docker_container.web.name
 }
 
-output "storage_account_name" {
-  value = azurerm_storage_account.main.name
+output "container_id" {
+  value = docker_container.web.id
 }

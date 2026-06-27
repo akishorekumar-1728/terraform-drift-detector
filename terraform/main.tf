@@ -1,13 +1,13 @@
-resource "azurerm_resource_group" "main" {
-  name     = var.resource_group_name
-  location = var.location
+resource "docker_image" "nginx" {
+  name = "nginx:latest"
 }
 
-resource "azurerm_storage_account" "main" {
-  name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.main.name
-  location                 = azurerm_resource_group.main.location
+resource "docker_container" "web" {
+  image = docker_image.nginx.image_id
+  name  = "terraform-nginx"
 
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
+  ports {
+    internal = 80
+    external = 8080
+  }
 }
