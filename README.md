@@ -179,33 +179,6 @@ drift_report.html
 drift_report.json
 ```
 
----
-
-## Screenshots
-
-### Terraform detects infrastructure drift
-
-![Terraform Drift](screenshots/terraform-plan-drift.png)
-
----
-
-### Docker Infrastructure
-
-![Docker](screenshots/docker-container.png)
-
----
-
-### HTML Drift Report
-
-![HTML Report](screenshots/html-report.png)
-
----
-
-### GitHub Actions
-
-![GitHub Actions](screenshots/github-actions.png)
-
----
 
 ## Future Enhancements
 
