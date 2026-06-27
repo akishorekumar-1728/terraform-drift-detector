@@ -4,27 +4,35 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   drift-check:
-
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install Dependencies
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.5.7
+
+      - name: Verify Terraform
+        run: terraform version
+
+      - name: Install Python Packages
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run Drift Detector
-        working-directory: detector
         run: |
+          cd detector
           python drift_detector.py
