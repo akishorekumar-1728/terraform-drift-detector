@@ -2,7 +2,9 @@ import os
 import json
 from datetime import datetime
 
-REPORT_DIR = "../reports"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REPORT_DIR = os.path.join(BASE_DIR, "..", "reports")
+
 os.makedirs(REPORT_DIR, exist_ok=True)
 
 def save_report(terraform_output, drift):
