@@ -215,6 +215,4 @@ https://github.com/akishorekumar-1728
 
 ---
 
-## License
 
-MIT License
